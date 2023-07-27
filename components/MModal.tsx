@@ -94,6 +94,7 @@ const submitInvoice = ():void => {
         (txObj, resultSet) => {
             loadData(db, handleSetInvoices,convertToSectionListData)
             handelSetVisible(false);
+            resetForm();
         },
         (txObj, error) => {
           console.log(error)
@@ -103,7 +104,7 @@ const submitInvoice = ():void => {
     });
   }
 
-  const resetForm=():void=>{
+    const resetForm=():void=>{
     setmainContact(undefined)
     setaName(undefined)
     seteName(undefined)
@@ -143,6 +144,7 @@ const submitInvoice = ():void => {
             if (resultSet.rowsAffected > 0) {
                 loadData(db, handleSetInvoices,convertToSectionListData)
                 handelSetVisible(false);
+                resetForm();
             }
           },
           (txObj, error) => {
